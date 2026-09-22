@@ -1,0 +1,86 @@
+/* Card shell -- matches obsidian-one-line visual language */
+.ol-block {
+	padding: var(--size-4-2) var(--size-4-3) 0;
+	margin: var(--size-4-2) 0;
+	border: 1px solid var(--background-modifier-border);
+	border-radius: var(--radius-m);
+	background: var(--background-primary);
+}
+
+.theme-dark .ol-block {
+	background: var(--background-secondary);
+}
+
+.ol-block__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: var(--size-4-2);
+	padding-bottom: var(--size-4-2);
+	border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.ol-block__title {
+	font-weight: var(--font-semibold);
+	font-size: var(--font-ui-medium);
+	color: var(--text-normal);
+}
+
+.ol-block__content {
+	font-size: var(--font-ui-small);
+}
+
+.ol-block__content > p {
+	margin: 0;
+}
+
+.ol-block__empty {
+	color: var(--text-muted);
+	font-style: italic;
+	text-align: center;
+	padding: var(--size-4-3);
+}
+
+.ol-block--error {
+	border-color: var(--color-red);
+	background: var(--background-modifier-error);
+}
+
+.ol-block__error {
+	color: var(--color-red);
+}
+
+/* Birthday table */
+.birthdays-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: var(--font-ui-small);
+	margin: 0 !important;
+}
+
+.birthdays-table th {
+	text-align: left;
+	font-weight: var(--font-semibold);
+	color: var(--text-muted);
+	padding: var(--size-4-1) var(--size-4-2);
+	border: none;
+	border-bottom: 1px solid var(--background-modifier-border) !important;
+}
+
+.birthdays-table td {
+	padding: var(--size-4-1) var(--size-4-2);
+	color: var(--text-normal);
+	border: none !important;
+}
+
+.birthdays-table tbody tr:last-child td {
+	padding-bottom: var(--size-4-2);
+}
+
+.birthdays-table tbody tr:hover td {
+	background: var(--background-modifier-hover);
+}
+
+.birthdays-table td:last-child {
+	color: var(--text-muted);
+}
