@@ -4,14 +4,14 @@ import type BirthdaysPlugin from "./main";
 export interface BirthdaysSettings {
 	defaultTitle: string;
 	defaultLiving: boolean;
-	defaultHeader: boolean;
+	showTitle: boolean;
 	peopleFolder: string;
 }
 
 export const DEFAULT_SETTINGS: BirthdaysSettings = {
 	defaultTitle: "Birthdays",
 	defaultLiving: false,
-	defaultHeader: true,
+	showTitle: true,
 	peopleFolder: "People",
 };
 
@@ -27,12 +27,12 @@ export class BirthdaysSettingTab extends PluginSettingTab {
 		let titleSetting: Setting;
 
 		new Setting(containerEl)
-			.setName("Show header")
+			.setName("Show title")
 			.setDesc("When enabled, the block title bar is shown by default.")
 			.addToggle(t => t
-				.setValue(this.plugin.settings.defaultHeader)
+				.setValue(this.plugin.settings.showTitle)
 				.onChange(async v => {
-					this.plugin.settings.defaultHeader = v;
+					this.plugin.settings.showTitle = v;
 					await this.plugin.saveSettings();
 					titleSetting.setDisabled(!v);
 				}));
@@ -47,7 +47,7 @@ export class BirthdaysSettingTab extends PluginSettingTab {
 					this.plugin.settings.defaultTitle = v || DEFAULT_SETTINGS.defaultTitle;
 					await this.plugin.saveSettings();
 				}));
-		titleSetting.setDisabled(!this.plugin.settings.defaultHeader);
+		titleSetting.setDisabled(!this.plugin.settings.showTitle);
 
 		new Setting(containerEl)
 			.setName("Show living only")

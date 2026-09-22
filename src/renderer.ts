@@ -51,11 +51,11 @@ export class BirthdaysBlock extends MarkdownRenderChild {
 		}
 
 		const title = config.title ?? this.settings.defaultTitle;
-		const showHeader = config.header ?? this.settings.defaultHeader;
+		const showTitle = config.showTitle ?? this.settings.showTitle;
 		const persons = resolvePersons(this.app, this.settings, this.ctx.sourcePath, config);
 
 		const block = el.createDiv({ cls: "ol-block" });
-		if (showHeader) {
+		if (showTitle) {
 			const header = block.createDiv({ cls: "ol-block__header" });
 			header.createSpan({ cls: "ol-block__title", text: title });
 		}

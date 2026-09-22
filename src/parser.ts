@@ -1,9 +1,9 @@
 export interface BlockConfig {
 	period: "day" | "week" | "month";
 	title?: string;
+	showTitle?: boolean;
 	date?: string;
 	living?: boolean;
-	header?: boolean;
 }
 
 export class ParseError extends Error {}
@@ -35,9 +35,10 @@ export function parseBlockConfig(source: string): BlockConfig {
 			case "living":
 				config.living = value.toLowerCase() === "true";
 				break;
-			case "header":
-				config.header = value.toLowerCase() !== "false";
-				break;		}
+			case "showtitle":
+				config.showTitle = value.toLowerCase() !== "false";
+				break;
+		}
 	}
 
 	if (!config.period) {
