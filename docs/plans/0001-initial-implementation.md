@@ -88,6 +88,7 @@ excluded. People with `died` unset or unparseable are treated as living.
 
 | Setting | Type | Default | Description |
 | --- | --- | --- | --- |
+| `showTitle` | toggle | `true` | Show the block title bar by default |
 | `defaultTitle` | text | `Birthdays` | Default block title |
 | `defaultLiving` | toggle | `false` | Show only living people by default |
 | `peopleFolder` | text | `People` | Vault-relative folder to scan for person notes |
@@ -125,6 +126,7 @@ content.
 interface BlockConfig {
   period: "day" | "week" | "month";
   title?: string;
+  showTitle?: boolean;
   date?: string;
   living?: boolean;
 }
@@ -198,8 +200,9 @@ October 1st appears in a week note that spans September/October.
 
 ### `settings.ts`
 
-Three settings as described above. `PluginSettingTab` with a text field for title, a
-toggle for `defaultLiving`, and a text field for `peopleFolder`.
+Four settings as described above. `PluginSettingTab` with a toggle for `showTitle`, a text
+field for title (disabled when `showTitle` is false), a toggle for `defaultLiving`, and a
+text field for `peopleFolder`.
 
 ## Build Setup
 
@@ -211,27 +214,27 @@ setup.
 
 ### Phase 1 -- Scaffold
 
-- [ ] `manifest.json`, `package.json`, `tsconfig.json`, `esbuild.config.mjs`, `.gitignore`
-- [ ] `src/settings.ts` -- interface, defaults, PluginSettingTab
-- [ ] `src/main.ts` -- plugin class, register code block processor
-- [ ] Basic processor renders "hello world" card
-- [ ] Verify plugin loads in Obsidian
+- [x] `manifest.json`, `package.json`, `tsconfig.json`, `esbuild.config.mjs`, `.gitignore`
+- [x] `src/settings.ts` -- interface, defaults, PluginSettingTab
+- [x] `src/main.ts` -- plugin class, register code block processor
+- [x] Basic processor renders "hello world" card
+- [x] Verify plugin loads in Obsidian
 
 ### Phase 2 -- Resolver
 
-- [ ] `src/parser.ts` -- parse block config
-- [ ] `src/resolver.ts` -- day, week, month modes; living filter; died handling
-- [ ] Unit-test resolver logic manually against vault data
+- [x] `src/parser.ts` -- parse block config
+- [x] `src/resolver.ts` -- day, week, month modes; living filter; died handling
+- [x] Unit-test resolver logic manually against vault data
 
 ### Phase 3 -- Renderer
 
-- [ ] `src/renderer.ts` -- card + table DOM, internal links, age calculation
-- [ ] `styles.css` -- reuse `ol-block` card classes, add `birthdays-table` styles
-- [ ] Wire up in `main.ts`
-- [ ] Test all three period modes
+- [x] `src/renderer.ts` -- card + table DOM, internal links, age calculation
+- [x] `styles.css` -- reuse `ol-block` card classes, add `birthdays-table` styles
+- [x] Wire up in `main.ts`
+- [x] Test all three period modes
 
 ### Phase 4 -- Polish
 
-- [ ] Error card for missing/invalid config
-- [ ] Empty state ("No birthdays found.")
-- [ ] Edge cases: week spanning month boundary, year-boundary ISO weeks
+- [x] Error card for missing/invalid config
+- [x] Empty state ("No birthdays found.")
+- [x] Edge cases: week spanning month boundary, year-boundary ISO weeks
