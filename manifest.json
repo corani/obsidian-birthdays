@@ -1,9 +1,9 @@
 {
-	"id": "obsidian-birthdays",
-	"name": "Birthdays",
-	"version": "0.1.0",
-	"minAppVersion": "1.4.0",
-	"description": "Dynamic blocks that show birthdays from your People notes on daily, weekly, and monthly notes.",
-	"author": "Daniel Bos",
-	"isDesktopOnly": false
+  "id": "obsidian-birthdays",
+  "name": "Birthdays",
+  "version": "0.1.0",
+  "minAppVersion": "1.4.0",
+  "description": "Dynamic blocks that show birthdays from your People notes on daily, weekly, and monthly notes.",
+  "author": "Daniel Bos",
+  "isDesktopOnly": false
 }
