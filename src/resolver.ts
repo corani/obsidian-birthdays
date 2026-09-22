@@ -11,10 +11,17 @@ export interface Person {
 
 // Parse a date string from frontmatter. Returns null if missing/empty, a Date if valid,
 // or a Date with year=1 (Dataview sentinel) if the value is unparseable.
+// Bare YYYY-MM-DD strings are parsed as local time to avoid UTC midnight → previous day in UTC+ zones.
 function parseFrontmatterDate(value: unknown): Date | null {
 	if (!value) return null;
 	const s = String(value).trim();
 	if (!s) return null;
+	// Parse bare date as local time
+	const bare = s.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+	if (bare) {
+		const d = new Date(+bare[1], +bare[2] - 1, +bare[3]);
+		return isNaN(d.getTime()) ? null : d;
+	}
 	const d = new Date(s);
 	if (!isNaN(d.getTime())) return d;
 	// Unparseable (e.g. "~1881") -- return sentinel
